@@ -1,0 +1,28 @@
+<main class="w-screen h-screen bg-gray-900 flex justify-center items-center">
+  <section class="backdrop-blur bg-white rounded-xl flex flex-col">
+
+    <div class="p-5 border-b-2 border-b-gray-900 px-10 flex items-center justify-center" id="title">
+      <h1 class="text-gray-900 font-black text-[1.5rem]" >
+        Login Form
+      </h1>
+    </div>
+
+    <div [formGroup]="loginForm" class="flex   flex-col p-5 px-10 gap-5 ">
+      <input formControlName="username" type="text" placeholder="Enter Username..." class="w-[20rem] p-5 placeholder:text-white text-white rounded-xl bg-gray-900 ring-0
+      focus:bg-gray-800">
+      <span *ngIf="!loginForm.get('username')?.valid" class="text-red-600 text-[0.8rem]">
+        Username Is Valid!!
+      </span>
+      <input formControlName="password" type="password" placeholder="Enter Password.." class="w-[20rem] p-5 placeholder:text-white text-white rounded-xl bg-gray-900 ring-0
+      focus:bg-gray-800">
+      <span *ngIf="!loginForm.get('password')?.valid" class="text-red-600 text-[0.8rem]">
+        Password Is Valid!!
+      </span>
+
+      <button class="w-[60%] p-4 rounded-xl ring-0 bg-cyan-900 text-white font-bold transition-all m-auto duration-200 ease-in
+      hover:bg-cyan-800 disabled:bg-gray-400" id="submit" [disabled]="!loginForm.valid">Login</button>
+
+    </div>
+
+  </section>
+</main>
